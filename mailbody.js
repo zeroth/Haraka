@@ -346,7 +346,10 @@ Body.prototype.parse_attachment = function (line) {
             return line;
         }
     }
-
+    // Changes to add entire attachment in raw format inside the Body object suggested by _sfm_
+    this.body_text_encoded += line;
+    // Changes end
+    
     var buf = this.decode_function(line);
     if ((buf.length + this.buf_fill) > buf_siz) {
         // now we have to create a new buffer, because if we write this out
